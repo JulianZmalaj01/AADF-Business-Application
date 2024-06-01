@@ -3,3 +3,12 @@
 .my-logo {
     height: 30px;
 }
+
+@media (max-width: 1000px) {
+    .left-side-logged-out {
+        display: none;
+    }
+    .right-side-logged-out {
+        width: 100%;
+    }
+}
