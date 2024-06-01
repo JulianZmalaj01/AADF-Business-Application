@@ -16,8 +16,11 @@ export const ContextProvider = ({children}) => {
     const [themeSettings, setThemeSettings] = useState(false)
     const [activeMenu, setActiveMenu] = useState(true)
     const [isClicked, setIsClicked] = useState(initialState)
-    const [token, setToken] = useState(false)
+
     const [baseurl, setBaseurl] = useState("https://43f0-192-109-217-9.ngrok-free.app")
+
+    // access-token
+    const [token, setToken] = useState(window.sessionStorage.getItem("token") == "false" ? false : window.sessionStorage.getItem("token"))
 
     const setMode = (e) => {
         setCurrentMode(e.target.value)

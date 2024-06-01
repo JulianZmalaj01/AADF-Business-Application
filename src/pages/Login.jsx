@@ -23,11 +23,12 @@ const NotLogged = () => {
                 .then((data) => {
                     console.log("data", data)
                     setToken(data.token)
+                    setIsClicked(initialState)
                 })
                 .catch((e) => {
                     console.error(e)
-                    setToken("test-token")
                     setIsClicked(initialState)
+                    setToken("test-token")
                 })
         } else {
             setError("Please fill the fields to login")
