@@ -408,44 +408,44 @@ export const links = [
             },
         ],
     },
-    {
-        title: "Charts",
-        links: [
-            {
-                name: "line",
-                icon: <AiOutlineStock />,
-            },
-            {
-                name: "area",
-                icon: <AiOutlineAreaChart />,
-            },
+    // {
+    //     title: "Charts",
+    //     links: [
+    //         {
+    //             name: "line",
+    //             icon: <AiOutlineStock />,
+    //         },
+    //         {
+    //             name: "area",
+    //             icon: <AiOutlineAreaChart />,
+    //         },
 
-            {
-                name: "bar",
-                icon: <AiOutlineBarChart />,
-            },
-            {
-                name: "pie",
-                icon: <FiPieChart />,
-            },
-            {
-                name: "financial",
-                icon: <RiStockLine />,
-            },
-            {
-                name: "color-mapping",
-                icon: <BsBarChart />,
-            },
-            {
-                name: "pyramid",
-                icon: <GiLouvrePyramid />,
-            },
-            {
-                name: "stacked",
-                icon: <AiOutlineBarChart />,
-            },
-        ],
-    },
+    //         {
+    //             name: "bar",
+    //             icon: <AiOutlineBarChart />,
+    //         },
+    //         {
+    //             name: "pie",
+    //             icon: <FiPieChart />,
+    //         },
+    //         {
+    //             name: "financial",
+    //             icon: <RiStockLine />,
+    //         },
+    //         {
+    //             name: "color-mapping",
+    //             icon: <BsBarChart />,
+    //         },
+    //         {
+    //             name: "pyramid",
+    //             icon: <GiLouvrePyramid />,
+    //         },
+    //         {
+    //             name: "stacked",
+    //             icon: <AiOutlineBarChart />,
+    //         },
+    //     ],
+    // },
 ]
 
 export const cartData = [
@@ -507,19 +507,19 @@ export const earningData = [
         pcColor: "red-600",
     },
     {
-        icon: <BsBoxSeam />,
-        amount: "4,396",
-        percentage: "+23%",
-        title: "Products",
+        icon: <MdOutlineSupervisorAccount />,
+        amount: "103",
+        percentage: "-2.3%",
+        title: "Employees",
         iconColor: "rgb(255, 244, 229)",
         iconBg: "rgb(254, 201, 15)",
-        pcColor: "green-600",
+        pcColor: "red-600",
     },
     {
-        icon: <FiBarChart />,
-        amount: "423,39",
-        percentage: "+38%",
-        title: "Sales",
+        icon: <AiOutlineOrderedList />,
+        amount: "3",
+        percentage: "+40%",
+        title: "Projects",
         iconColor: "rgb(228, 106, 118)",
         iconBg: "rgb(255, 244, 229)",
 
@@ -1893,6 +1893,16 @@ export const ordersData = [
         Status: "complete",
         StatusBg: "#8BE78B",
         ProductImage: product5,
+    },
+    {
+        OrderID: 3,
+        CustomerName: "AADF",
+        TotalAmount: 35,
+        OrderItems: "National Examinations Center",
+        Location: "Albania",
+        Status: "complete",
+        StatusBg: "#352",
+        ProductImage: product4,
     },
 ]
 
