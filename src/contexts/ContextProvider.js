@@ -11,13 +11,13 @@ const initialState = {
 
 export const ContextProvider = ({children}) => {
     const [screenSize, setScreenSize] = useState(undefined)
-    const [currentColor, setCurrentColor] = useState("#03C9D7")
-    const [currentMode, setCurrentMode] = useState("Light")
+    const [currentColor, setCurrentColor] = useState("#7352ff")
+    const [currentMode, setCurrentMode] = useState("Dark")
     const [themeSettings, setThemeSettings] = useState(false)
     const [activeMenu, setActiveMenu] = useState(true)
     const [isClicked, setIsClicked] = useState(initialState)
 
-    const [baseurl, setBaseurl] = useState("https://43f0-192-109-217-9.ngrok-free.app")
+    const [baseurl, setBaseurl] = useState("https://f956-95-107-171-21.ngrok-free.app")
 
     // access-token
     const [token, setToken] = useState(window.sessionStorage.getItem("token") == "false" ? false : window.sessionStorage.getItem("token"))
