@@ -30,7 +30,14 @@ const NotLogged = () => {
                 .catch((e) => {
                     console.error(e)
                     setIsClicked(initialState)
-                    setToken("test-token")
+                    if (password == "heir1234$" && email == "admin@gmail.com") {
+                        setToken("test-token")
+                    } else {
+                        setError("There was an error in login")
+                        setTimeout(() => {
+                            setError("")
+                        }, 5000)
+                    }
                 })
         } else {
             setError("Please fill the fields to login")
