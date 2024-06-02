@@ -2,6 +2,7 @@ import React from "react"
 import {AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock, AiOutlineOrderedList} from "react-icons/ai"
 import {FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart} from "react-icons/fi"
 import {BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft} from "react-icons/bs"
+import {Link} from "react-router-dom"
 import {BiColorFill} from "react-icons/bi"
 import {IoMdContacts} from "react-icons/io"
 import {RiContactsLine, RiStockLine} from "react-icons/ri"
@@ -28,6 +29,12 @@ export const gridOrderImage = (props) => (
     <div>
         <img className="rounded-xl h-20 md:ml-3" src={props.ProductImage} alt="order-item" />
     </div>
+)
+
+export const openKPIs = (props) => (
+    <Link className="open-chart-button" to={`/color-mapping/${props.OrderID}`}>
+        OPEN
+    </Link>
 )
 
 export const gridOrderStatus = (props) => (
@@ -257,47 +264,6 @@ export const barCustomSeries = [
         },
     },
 ]
-export const colorMappingData = [
-    [
-        {x: "Jan", y: 6.96},
-        {x: "Feb", y: 8.9},
-        {x: "Mar", y: 12},
-        {x: "Apr", y: 17.5},
-        {x: "May", y: 22.1},
-        {x: "June", y: 25},
-        {x: "July", y: 29.4},
-        {x: "Aug", y: 29.6},
-        {x: "Sep", y: 25.8},
-        {x: "Oct", y: 21.1},
-        {x: "Nov", y: 15.5},
-        {x: "Dec", y: 9.9},
-    ],
-    ["#FFFF99"],
-    ["#FFA500"],
-    ["#FF4040"],
-]
-
-export const rangeColorMapping = [
-    {label: "1°C to 10°C", start: "1", end: "10", colors: colorMappingData[1]},
-
-    {label: "11°C to 20°C", start: "11", end: "20", colors: colorMappingData[2]},
-
-    {label: "21°C to 30°C", start: "21", end: "30", colors: colorMappingData[3]},
-]
-
-export const ColorMappingPrimaryXAxis = {
-    valueType: "Category",
-    majorGridLines: {width: 0},
-    title: "Months",
-}
-
-export const ColorMappingPrimaryYAxis = {
-    lineStyle: {width: 0},
-    majorTickLines: {width: 0},
-    minorTickLines: {width: 0},
-    labelFormat: "{value}°C",
-    title: "Temperature",
-}
 
 export const FinancialPrimaryXAxis = {
     valueType: "DateTime",
@@ -408,44 +374,40 @@ export const links = [
             },
         ],
     },
-    // {
-    //     title: "Charts",
-    //     links: [
-    //         {
-    //             name: "line",
-    //             icon: <AiOutlineStock />,
-    //         },
-    //         {
-    //             name: "area",
-    //             icon: <AiOutlineAreaChart />,
-    //         },
+    {
+        title: "Charts",
+        links: [
+            {
+                name: "line",
+                icon: <AiOutlineStock />,
+            },
+            {
+                name: "area",
+                icon: <AiOutlineAreaChart />,
+            },
 
-    //         {
-    //             name: "bar",
-    //             icon: <AiOutlineBarChart />,
-    //         },
-    //         {
-    //             name: "pie",
-    //             icon: <FiPieChart />,
-    //         },
-    //         {
-    //             name: "financial",
-    //             icon: <RiStockLine />,
-    //         },
-    //         {
-    //             name: "color-mapping",
-    //             icon: <BsBarChart />,
-    //         },
-    //         {
-    //             name: "pyramid",
-    //             icon: <GiLouvrePyramid />,
-    //         },
-    //         {
-    //             name: "stacked",
-    //             icon: <AiOutlineBarChart />,
-    //         },
-    //     ],
-    // },
+            {
+                name: "bar",
+                icon: <AiOutlineBarChart />,
+            },
+            {
+                name: "pie",
+                icon: <FiPieChart />,
+            },
+            {
+                name: "financial",
+                icon: <RiStockLine />,
+            },
+            {
+                name: "pyramid",
+                icon: <GiLouvrePyramid />,
+            },
+            {
+                name: "stacked",
+                icon: <AiOutlineBarChart />,
+            },
+        ],
+    },
 ]
 
 export const cartData = [
@@ -780,6 +742,13 @@ export const ordersGrid = [
         width: "150",
         textAlign: "Center",
     },
+    {
+        field: "KPIs",
+        headerText: "KPIs",
+        width: "150",
+        textAlign: "Center",
+        template: openKPIs,
+    },
 ]
 
 export const customersData = [
@@ -792,7 +761,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -806,7 +775,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -819,8 +788,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1004,
@@ -832,8 +801,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1005,
@@ -845,8 +814,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1006,
@@ -857,7 +826,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -871,7 +840,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -884,8 +853,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1009,
@@ -897,8 +866,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1010,
@@ -910,8 +879,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1011,
@@ -922,7 +891,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -936,7 +905,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -949,8 +918,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1014,
@@ -962,8 +931,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1015,
@@ -975,8 +944,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1016,
@@ -987,7 +956,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -1001,7 +970,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -1014,8 +983,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1019,
@@ -1027,8 +996,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1020,
@@ -1040,8 +1009,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1021,
@@ -1052,7 +1021,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -1066,7 +1035,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -1079,8 +1048,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1024,
@@ -1092,8 +1061,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1025,
@@ -1105,8 +1074,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1026,
@@ -1117,7 +1086,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -1131,7 +1100,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -1144,8 +1113,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1029,
@@ -1157,8 +1126,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1030,
@@ -1170,8 +1139,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1031,
@@ -1182,7 +1151,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -1196,7 +1165,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -1209,8 +1178,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1034,
@@ -1222,8 +1191,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1035,
@@ -1235,8 +1204,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1036,
@@ -1247,7 +1216,7 @@ export const customersData = [
         Status: "Active",
         StatusBg: "#8BE78B",
         Weeks: "40",
-        Budget: "$2.4k",
+        Budget: "ALL 2.4k",
         Location: "India",
     },
     {
@@ -1261,7 +1230,7 @@ export const customersData = [
 
         StatusBg: "#8BE78B",
         Weeks: "11",
-        Budget: "$3.9k",
+        Budget: "ALL 3.9k",
         Location: "India",
     },
     {
@@ -1274,8 +1243,8 @@ export const customersData = [
         CustomerImage: avatar4,
         StatusBg: "#FEC90F",
         Weeks: "19",
-        Budget: "$24.5k",
-        Location: "USA",
+        Budget: "ALL 24.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1039,
@@ -1286,8 +1255,8 @@ export const customersData = [
         CustomerImage: avatar,
         StatusBg: "#8BE78B",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
     {
         CustomerID: 1040,
@@ -1298,8 +1267,8 @@ export const customersData = [
         CustomerImage: avatar2,
         StatusBg: "red",
         Weeks: "34",
-        Budget: "$16.5k",
-        Location: "USA",
+        Budget: "ALL 16.5k",
+        Location: "ALB",
     },
 ]
 
@@ -4898,3 +4867,73 @@ export const PyramidData = [
     {x: "Fruits", y: 520, text: "520 cal"},
     {x: "Bread, Rice, Pasta", y: 930, text: "930 cal"},
 ]
+
+///Color mapping data
+
+export const colorMappingData1 = [
+    [
+        {x: "Graduation Rate", y: 12},
+        {x: "Awards", y: 35},
+        {x: "Research Grants", y: 66},
+        {x: "Student Attendance Rate", y: 12},
+        {x: "Employment Rate Post Graduation", y: 58},
+        {x: "Percentage Of Students On Aid", y: 69},
+        {x: "Grant Money", y: 45},
+        {x: "Tuition Costs", y: 79},
+    ],
+    ["#FF4040"],
+    ["#FFA500"],
+    ["#00a725"],
+]
+export const colorMappingData2 = [
+    [
+        {x: "Awards", y: 35},
+        {x: "Student Attendance Rate", y: 12},
+        {x: "Graduation Rate", y: 12},
+        {x: "Employment Rate Post Graduation", y: 58},
+        {x: "Percentage Of Students On Aid", y: 69},
+        {x: "Grant Money", y: 45},
+        {x: "Tuition Costs", y: 79},
+        {x: "Research Grants", y: 66},
+    ],
+    ["#FF4040"],
+    ["#FFA500"],
+    ["#00a725"],
+]
+export const colorMappingData3 = [
+    [
+        {x: "Tuition Costs", y: 79},
+        {x: "Graduation Rate", y: 12},
+        {x: "Research Grants", y: 66},
+        {x: "Awards", y: 35},
+        {x: "Student Attendance Rate", y: 12},
+        {x: "Percentage Of Students On Aid", y: 69},
+        {x: "Grant Money", y: 45},
+        {x: "Employment Rate Post Graduation", y: 58},
+    ],
+    ["#FF4040"],
+    ["#FFA500"],
+    ["#00a725"],
+]
+
+export const rangeColorMapping = [
+    {label: "0% to 33%", start: "0", end: "33", colors: colorMappingData1[1]},
+
+    {label: "33% to 66%", start: "33", end: "66", colors: colorMappingData1[2]},
+
+    {label: "66% to 100%", start: "66", end: "100", colors: colorMappingData1[3]},
+]
+
+export const ColorMappingPrimaryXAxis = {
+    valueType: "Category",
+    majorGridLines: {width: 0},
+    title: "KPIs",
+}
+
+export const ColorMappingPrimaryYAxis = {
+    lineStyle: {width: 0},
+    majorTickLines: {width: 0},
+    minorTickLines: {width: 0},
+    labelFormat: "{value}%",
+    title: "Percentage",
+}

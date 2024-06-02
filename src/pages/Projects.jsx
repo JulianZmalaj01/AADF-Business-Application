@@ -23,7 +23,6 @@ const Orders = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Projects:", data)
                 setLoading(false)
             })
             .catch((e) => {
@@ -37,7 +36,7 @@ const Orders = () => {
     }, [])
 
     return (
-        <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+        <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl projects-page">
             <Header category="Page" title="Projects" />
             {loading ? (
                 <div className="loading-page">

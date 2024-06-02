@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import {useStateContext} from "../contexts/ContextProvider"
-
+import Logo from "../images/logo.png"
 const NotLogged = () => {
     const {baseurl, setToken, setIsClicked, initialState} = useStateContext()
 
@@ -24,7 +24,6 @@ const NotLogged = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("data", data)
                     setToken(data.token)
                     setIsClicked(initialState)
                 })
@@ -45,7 +44,7 @@ const NotLogged = () => {
         <div className="min-h-screen flex flex-col sm:flex-row" style={{width: "100%"}}>
             <div style={{background: "#060818"}} className="sm:w-1/2 h-screen flex items-center justify-center left-side-logged-out">
                 <div className="text-white text-4xl font-bold text-center">
-                    <img src="logo.png" alt="Logo" className="w-32 h-32 mb-4 mx-auto" />
+                    <img src={Logo} alt="Logo" className="w-32 h-32 mb-4 mx-auto" />
                     AADF
                 </div>
             </div>

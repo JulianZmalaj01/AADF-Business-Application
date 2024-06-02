@@ -6,7 +6,6 @@ const Button = ({icon, bgColor, color, bgHoverColor, size, text, borderRadius, w
     const {setIsClicked, initialState, setToken} = useStateContext()
 
     const handleClick = () => {
-        console.log("type", type)
         switch (type) {
             case "logout":
                 return setToken(false)
